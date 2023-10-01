@@ -4,12 +4,14 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import models.ContaModel;
+import views.ContaView;
 
 public class ContaController {
-    private ContaModel conta;
+    private ContaModel contaModel;
+    private ContaView contaView;
 
     public ContaController(int numero, String agencia, String nomeCliente, double saldo) {
-        this.conta = new ContaModel(numero, agencia, nomeCliente, saldo);
+        this.contaModel = new ContaModel(numero, agencia, nomeCliente, saldo);
     }
 
     public void lerDadosDoTerminal() {
@@ -25,10 +27,15 @@ public class ContaController {
         System.out.print("Por fim, digite o saldo da conta: ");
         double saldo = scanner.nextDouble();
 
-        this.conta = new ContaModel(numero, agencia, nomeCliente, saldo);
+        this.contaModel = new ContaModel(numero, agencia, nomeCliente, saldo);
 
         scanner.close();
 
         System.out.println("Conta criada com sucesso!");
+    }
+
+    public void imprimirDadosDaConta() {
+        this.contaView = new ContaView(this.contaModel);
+        this.contaView.imprimirDadosDaConta();
     }
 }
