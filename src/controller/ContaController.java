@@ -10,8 +10,7 @@ public class ContaController {
     private ContaModel contaModel;
     private ContaView contaView;
 
-    public ContaController(int numero, String agencia, String nomeCliente, double saldo) {
-        this.contaModel = new ContaModel(numero, agencia, nomeCliente, saldo);
+    public ContaController() {
     }
 
     public void lerDadosDoTerminal() {
